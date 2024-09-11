@@ -53,3 +53,18 @@ function calculateInventoryValue(inventory) {
 
 // Example usage:
 console.log(`Total Inventory Value: $${calculateInventoryValue(inventory)}`);
+
+// Task 6: Function to process a sale
+function processSale(productName, unitsSold) {
+    const product = inventory.find(item => item.name === productName);
+    
+    if (product) {
+        updateStock(product, unitsSold);
+    } else {
+        console.log(`Error: ${productName} is not in the inventory.`);
+    }
+}
+
+// Example usage:
+processSale('Laptop', 2);
+processSale('Camera', 1); // Should return error as it's not in the inventory
