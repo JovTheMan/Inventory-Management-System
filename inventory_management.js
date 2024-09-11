@@ -15,3 +15,32 @@ function displayProductDetails(product) {
 
 // Example usage:
 displayProductDetails(inventory[0]);
+
+// Task 3: Function to update stock after sales
+function updateStock(product, unitsSold) {
+    if (product.quantity >= unitsSold) {
+        product.quantity -= unitsSold;
+        console.log(`${unitsSold} units sold. Remaining stock: ${product.quantity}`);
+        
+        if (product.quantity <= product.lowStockLevel) {
+            console.log(`Warning: ${product.name} is now in Low Stock.`);
+        }
+    } else {
+        console.log(`Error: Cannot sell ${unitsSold} units of ${product.name}. Only ${product.quantity} units available.`);
+    }
+}
+
+// Example usage:
+updateStock(inventory[1], 3);
+
+// Task 4: Function to check for low stock products
+function checkLowStock(inventory) {
+    inventory.forEach(product => {
+        if (product.quantity <= product.lowStockLevel) {
+            console.log(`${product.name} is in Low Stock.`);
+        }
+    });
+}
+
+// Example usage:
+checkLowStock(inventory);
