@@ -44,3 +44,12 @@ function checkLowStock(inventory) {
 
 // Example usage:
 checkLowStock(inventory);
+
+// Task 5: Function to calculate total inventory value
+function calculateInventoryValue(inventory) {
+    const totalValue = inventory.reduce((total, product) => total + (product.price * product.quantity), 0);
+    return totalValue;
+}
+
+// Example usage:
+console.log(`Total Inventory Value: $${calculateInventoryValue(inventory)}`);
